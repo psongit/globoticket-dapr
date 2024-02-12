@@ -19,7 +19,7 @@ services:
     networks:
       - globoticket-dapr
   catalog-dapr:
-    image: "daprio/daprd:1.11.0"
+    image: "daprio/daprd:1.12.0"
     command: [
       "./daprd",
      "-app-id", "catalog",
@@ -45,7 +45,7 @@ services:
       - globoticket-dapr
 
   frontend-dapr:
-    image: "daprio/daprd:1.11.0"
+    image: "daprio/daprd:1.12.0"
     command: [
       "./daprd",
      "-app-id", "frontend",
@@ -70,7 +70,7 @@ services:
     networks:
       - globoticket-dapr
   ordering-dapr:
-    image: "daprio/daprd:1.11.0"
+    image: "daprio/daprd:1.12.0"
     command: [
       "./daprd",
      "-app-id", "ordering",
@@ -95,7 +95,7 @@ services:
 
   maildev:
     container_name: "maildev_service" 
-    image: "maildev/maildev:1.1.0" # https://hub.docker.com/r/maildev/maildev
+    image: "rnwood/smtp4dev" # https://hub.docker.com/r/rnwood/smtp4dev
     ports:
       - "25"
       - "1080:80"
@@ -104,7 +104,7 @@ services:
       
   zipkin:
     container_name: "zipkin_service"
-    image: "openzipkin/zipkin:2.23.4" # https://registry.hub.docker.com/r/openzipkin/zipkin
+    image: "openzipkin/zipkin:3" # https://registry.hub.docker.com/r/openzipkin/zipkin
     ports:
       - 9412:9411
     networks:
